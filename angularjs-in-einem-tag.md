@@ -31,7 +31,7 @@ Angular hat eine anfängliche kurze Lernkurve, welche beim Lernen über die Basi
 
 Wahrscheinlich hast du schon mal von MVC als ein von vielen Programmiersprachen verwendetes Mittel zur Strukturierung und Architektur von Applications/Software gehört. Hier ist eine kurze Zusammenfassung der Bedeutungen der einzelnen Bestandteile:
 
-+   *Model*: Die Daten(-struktur) hinter einem bestimmten Bereich der Application. Wird in Angular gewöhnlich als JSON ausgetauscht. Falls dir JSON noch fremd ist, informiere dich am besten zuerst darüber, da es in Angular ein fundameltales Mittel zum Austausch von Informationen zwischen Server und View ist. Zum Beispiel könnte eine Sammlung von *User IDs* als folgendes Model dargestellt werden:
++   *Model*: Die Daten(-struktur) hinter einem bestimmten Bereich der Application. Wird in Angular gewöhnlich als JSON ausgetauscht. Falls dir JSON noch fremd ist, informiere dich am besten zuerst darüber, da es in Angular ein fundamentales Mittel zum Austausch von Informationen zwischen Server und View ist. Zum Beispiel könnte eine Sammlung von *User IDs* als folgendes Model dargestellt werden:
 
         {
           "users" : [{
@@ -44,7 +44,7 @@ Wahrscheinlich hast du schon mal von MVC als ein von vielen Programmiersprachen 
         }
 
     Diese Daten können entweder über XHR (XMLHttp Request) von dem Server abgefragt werden - wie du in jQuery die `$.ajax` Funktion benutzen würdest, stellt dir Angular `$http` bereit - oder direkt in den HTML Code der Webseite eingebettet werden (zum Beispiel beim Verarbeiten der Seite durch PHP und auslesen der Informationen aus einer Datenbank). Anschließend können Änderungen am Model vollzogen werden und zurück zum Server bzw. zur Datenbank gesendet werden.
-+   *View*: Die Beschreibung des Views ist einfach: Es ist dein HTML Code und/oder der (von Angular) gerendete Output. Bei der Verwendung eines MVC Frameworks werden Model Daten heruntergeladen und anlysiert, auf deren Basis dann der View/HTML und die angezeigten Informationen aktualisiert werden.
++   *View*: Die Beschreibung des Views ist einfach: Es ist dein HTML Code und/oder der (von Angular) gerendete Output. Bei der Verwendung eines MVC Frameworks werden Model Daten heruntergeladen und analysiert, auf deren Basis dann der View/HTML und die angezeigten Informationen aktualisiert werden.
 +   *Controller*: Genau wie der Name schon sagt - sie kontrollieren. Um genauer zu sein kontrollieren sie Daten. Controllers sind die direkte Verbindung zwischen *Server* und *View*, der *Middle Man*, welcher über die Kommunikation zwischen Server und Client für die Verarbeitung und Aktualisierung der Daten sorgt.
 
 
@@ -83,7 +83,7 @@ Stattdessen ein globales Module zu definieren hat sich in Angular Projekten, an 
     myApp.controller('NavCtrl', ['$scope', function ($scope) {...}]);
     myApp.controller('UserCtrl', ['$scope', function ($scope) {...}]);
 
-Jede neue Datei greift auf diesen `myApp` Namespace zu um sich in die Application zu integrieren. Ja, ich erstelle für jeden Controller, Directive, Factory und alles andere eine neue Datei (du wirst das zu schätzen lernen). Die Dateien werden zu einer einzigen Datei, welche später in die Webseite eingeunden wird, zusammengefasst (*concatenated*) und minified (zum Beispiel mittels Grunt oder Gulp).
+Jede neue Datei greift auf diesen `myApp` Namespace zu, um sich in die Application zu integrieren. Ja, ich erstelle für jeden Controller, Directive, Factory und alles andere eine neue Datei (du wirst das zu schätzen lernen). Die Dateien werden zu einer einzigen Datei, welche später in die Webseite eingeunden wird, zusammengefasst (*concatenated*) und minified (zum Beispiel mittels Grunt oder Gulp).
 
 
 
@@ -115,7 +115,7 @@ Ergebnis:
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/toddmotto/mN7QB/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-Das wichtigste oben dargestellte Konzept ist das `$scope` Konzept, welches in jeder Funktion eines Controllers verwendet wird. Die `$scope` Variable verweist auf das aktuelle Element/Bereich im DOM (dies ist nciht dasselbe wie `this`) und bietet eine sehr praktische Art des Scopings, die Daten und Logik vollständig auf ein Element beschränkt (*scoped*). Damit bietet Angular quasi JavaScripts Konzept des *public* und *private* Scopings von Variablen für das DOM an - das ist wirklich großartig.
+Das wichtigste oben dargestellte Konzept ist das `$scope` Konzept, welches in jeder Funktion eines Controllers verwendet wird. Die `$scope` Variable verweist auf das aktuelle Element/Bereich im DOM (dies ist nicht dasselbe wie `this`) und bietet eine sehr praktische Art des Scopings, die Daten und Logik vollständig auf ein Element beschränkt (*scoped*). Damit bietet Angular quasi JavaScripts Konzept des *public* und *private* Scopings von Variablen für das DOM an - das ist wirklich großartig.
 
 Im ersten Augenblick mag das `$scope` Konzept ein wenig einschüchternd wirken, aber es ist für Daten in Angular der Weg vom Server (oder als statische Daten) ins DOM. Die Demo oben stellt das grundlegende Vorgehen dar, um Daten in das DOM einzufügen.
 
@@ -198,7 +198,7 @@ Nachdem nun vermittelt wurde wie Directives an bestimmten Stellen im HTML verwen
 
 Die Directive wird mittels der `.directive()` Methode definiert, welche den Namen der Directive, hier *customButton*, als Parameter erwartet. Directive Namen in Camel-Case Notation sind gleichzusetzen mit Namen im HTML, welche einen Bindestrich als Trennsymbol verwenden (siehe voriges Beispiel), wobei die Großbuchstaben im Camel-Case-Namen zu Kleinbuchstaben tranformiert werden und ihnen ein Bindestrich vorangestellt wird.
 
-Eine Directive definiert sich selbst als ein Object, welches eine Vielzahl an Parametern definieren kann, und von der Directive Funktion zurückgegeben wird. Die wichtigsten Parameter, welche es zuerst zu meistern gilt, sind `restrict`, `replace`, 'transclude`, `template` und `templateUrl`, sowie die `link` Property. Diese wurden dem vorigen Beispiel hinzugefügt:
+Eine Directive definiert sich selbst als ein Object, welches eine Vielzahl an Parametern definieren kann, und von der Directive Funktion zurückgegeben wird. Die wichtigsten Parameter, welche es zuerst zu meistern gilt, sind `restrict`, `replace`, `transclude`, `template` und `templateUrl`, sowie die `link` Property. Diese wurden dem vorigen Beispiel hinzugefügt:
 
     myApp.directive('customButton', function () {
       return {
@@ -396,7 +396,7 @@ Das waren die wesentlichen Grundlagen von AngularJS und dessen APIs. Die Möglic
 
 ## *Two-Way Data-Binding*
 
-*Two-Way Data-Binding*, zu Deutsch: *Bidirektionale/Zwei-Wege Datenverbindung*, beschreibt eine vollständige Synchronisierung der Daten, mit Austausch von aktualisierten Daten in beide Richtungen. Dadurch entsteht ein vollständiger Kreislauf von synchronisierten Daten: Das aktualisierte *Model* aktualisiert den *View*, und der aktualisierte *View* aktualisiert das *Model*. Dies gewährleistet synchonisierte Daten ohne Umstände. Wenn zum Beispiel ein Model mittels `ng-model` mit einem `<input>` Element verbunden wird und Daten in dieses Feld eingetragen werden, wird automatisch das dazugehörige Model erstellt bzw. aktualisiert.
+*Two-Way Data-Binding*, zu Deutsch: *Bidirektionale/Zwei-Wege Datenverbindung*, beschreibt eine vollständige Synchronisierung der Daten, mit Austausch von aktualisierten Daten in beide Richtungen. Dadurch entsteht ein vollständiger Kreislauf von synchronisierten Daten: Das aktualisierte *Model* aktualisiert den *View*, und der aktualisierte *View* aktualisiert das *Model*. Dies gewährleistet synchronisierte Daten ohne Umstände. Wenn zum Beispiel ein Model mittels `ng-model` mit einem `<input>` Element verbunden wird und Daten in dieses Feld eingetragen werden, wird automatisch das dazugehörige Model erstellt bzw. aktualisiert.
 
 Im folgenden Beispiel wird ein `<input>` Feld erstellt und mit einem Model namens *myModel* verbunden. Mittels der *Curly Handlebars Syntax* können die Daten des Models gleichzeitig auch noch an anderer Stelle ausgegeben werden, und die Anzeige im View wird ebenfalls synchronisiert.
 
@@ -466,7 +466,7 @@ Im Idealfall wird zuerst die Struktur der JSON Daten entworfen, diese beeinfluss
       }
     }
 
-Das vom Server zurückgegebene Object ist in den Promise/Event Handlers über den Parameter `data` verfügbar, der Username (in diesem Fall "Todd Motto") kann also mittels `data.user.name` ausgelese werden. Die Kommentare im Code unterhalb erläutern das Vorgehen zum Empfangen der JSON Daten:
+Das vom Server zurückgegebene Object ist in den Promise/Event Handlers über den Parameter `data` verfügbar, der Username (in diesem Fall "Todd Motto") kann also mittels `data.user.name` ausgelesen werden. Die Kommentare im Code unterhalb erläutern das Vorgehen zum Empfangen der JSON Daten:
 
 JavaScript:
 
@@ -612,7 +612,7 @@ Ergebnis (Versuche die Navigation umzuschalten):
 
 ## Expressions
 
-Dies ist ein großartiges Feature von Angular, für dessen Funktion anderenfalls JavaScript und eine Menge sich wiederholdender Code erforderlich wäre.
+Dies ist ein großartiges Feature von Angular, für dessen Funktion anderenfalls JavaScript und eine Menge sich wiederholender Code erforderlich wäre.
 
 Ein klassisches Beispiel:
 
@@ -628,7 +628,7 @@ Der Code könnte zum Beispiel ein Callback für einen `GET` Request sein, welche
 
     <p>{{ data.length > 0 && 'My data' || 'No data' }}</p>
 
-Dieses Markup wird die angezeigten Daten ohne die Verwendung von Callbacks dynamisch aktualisierten wannimmer die Application neue Daten einholt. Wenn die Response leer ist, wird dies mit "No data" mitgeteilt, anderenfalls wird "My data" angezeigt. Es gibt unzählige Anwendungsfälle für dieses Feature und Angular regelt das alles voll automatisch durch Two-Way Binding.
+Dieses Markup wird die angezeigten Daten ohne die Verwendung von Callbacks dynamisch aktualisierten wann immer die Application neue Daten einholt. Wenn die Response leer ist, wird dies mit "No data" mitgeteilt, anderenfalls wird "My data" angezeigt. Es gibt unzählige Anwendungsfälle für dieses Feature und Angular regelt das alles voll automatisch durch Two-Way Binding.
 
 Ergebnis:
 
@@ -681,7 +681,7 @@ Der Code zeigt, dass *wenn* (`when`) die URL "/" ist, `main.html` geladen wird. 
 
 `emails.html` kann dann einfach mit dem Markup zum Rendern der E-Mails (siehe oben) gefüllt werden. Das Ergebnis ist eine fortschrittliche Application, deren Entwicklung nur wenig Aufwand erforderte.
 
-Mit dem `$routeProvider` Service kann noch vieles mehr umgesetzt werden, und es lohnt sich auf jeden Fall sich damit noch etwas näher zu befassen, die aufgezeigten Beispiele reichen aber schon aus um in bei der Entwicklung von Applications einzusetzen. Beispielweise könnten `$http` Events überwacht werden um zum Beispiel einen Ladekreis anzuzeigen wenn eine Ajax Abfrage ausgeführt wird um neue Daten zu erhalten.
+Mit dem `$routeProvider` Service kann noch vieles mehr umgesetzt werden, und es lohnt sich auf jeden Fall sich damit noch etwas näher zu befassen, die aufgezeigten Beispiele reichen aber schon aus um ihn bei der Entwicklung von Applications einzusetzen. Beispielweise könnten `$http` Events überwacht werden um zum Beispiel einen Ladekreis anzuzeigen wenn eine Ajax Abfrage ausgeführt wird um neue Daten zu erhalten.
 
 
 
